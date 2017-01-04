@@ -31,6 +31,7 @@ def try_except_response(func):
 def d_next_url(next_xpath='//a[@id="pagnNextLink"]'):
     def _next_url(method):
         @try_except_response
+        @functools.wraps(func)
         def wrapper(self, *args, **kwargs):
 
             result = method(self, *args, **kwargs)
@@ -48,6 +49,7 @@ def d_next_url(next_xpath='//a[@id="pagnNextLink"]'):
 def d_product_urls(product_xpath='//li[contains(@id, "result_")]//a[contains(@class, "s-access-detail-page")]', attr='href'):
     def _product_urls(method):
         @try_except_response
+        @functools.wraps(func)
         def wrapper(self, *args, **kwargs):
             result = method(self, *args, **kwargs)
 
@@ -65,6 +67,7 @@ def d_product_urls(product_xpath='//li[contains(@id, "result_")]//a[contains(@cl
 
 def d_find_product(method):
     @try_except_response
+    @functools.wraps(func)
     def wrapper(self, *args, **kwargs):
 
         product_ele = None

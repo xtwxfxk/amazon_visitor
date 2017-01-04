@@ -147,6 +147,8 @@ class AmazonBase(object):
             self.b.sync_local()
             self.b.down_bottom()
 
+    def
+
     @try_except_response
     def visit_product(self):
         logger.info('Visit %s' % self._product_url)
@@ -155,3 +157,5 @@ class AmazonBase(object):
         self.b.down_bottom()
 
         self.save_screenshot_success()
+
+        for i in random.randint(2, 5):
